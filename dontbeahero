@@ -5,10 +5,12 @@ use strict;
 my @width  = (0 .. 1920);
 my @height = (0 .. 1080);
 
+my $delay = 590; # s
+
 while(1) {
   my($x, $y) = ($width[ rand(scalar @width) ], $height[ rand(scalar @height) ]);
   xdotool($x, $y);
-  sleep 590;
+  sleep $delay;
 }
 
 
