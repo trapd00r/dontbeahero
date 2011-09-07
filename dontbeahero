@@ -1,0 +1,69 @@
+#!/usr/bin/perl
+our $VERSION = '0.002';
+use strict;
+
+my @width  = (0 .. 1920);
+my @height = (0 .. 1080);
+
+while(1) {
+  my($x, $y) = ($width[ rand(scalar @width) ], $height[ rand(scalar @height) ]);
+  xdotool($x, $y);
+  sleep 590;
+}
+
+
+sub xdotool {
+  my($z, $y) = @_ ? @_ : (1, 1);
+  system('xdotool', 'mousemove', @_);
+}
+
+__END__
+
+=pod
+
+=head1 NAME
+
+dontbeahero - don't worry, someone else will save the planet
+
+=head1 USAGE
+
+dontbeahero [NO OPTIONS]
+
+=head1 DESCRIPTION
+
+I often play music videos on my TV when I code. When I need to take a break
+I usually go and get some pineapple slices and make myself comfortable in
+the sofa.
+
+The builtin power saving features can't be turned off enough to make the screen
+not darken itself, so I had to manually press a key on the tiny htpc keyboard to
+get the picture back on. Accidently I often pressed a button that'd quit mplayer
+or do other nasty things like jumping 50 videos back in the playlist.
+
+The initial solution was to run
+
+    xdotool mousemove 0 0
+
+in a crontab. This worked great the first time. The second time around there's
+nowhere to move and the screen stays black.
+
+I try hard to make sure that we don't use identical values for x and y two times
+in a row.
+
+=head1 PREREQUISITES
+
+xdotool
+
+=head1 AUTHOR
+
+  Magnus Woldrich
+  CPAN ID: WOLDRICH
+  m@japh.se
+  http://japh.se
+
+=head1 LICENSE
+
+This application is free software; you can redistribute it and/or modify it
+under the same terms as Perl itself.
+
+=cut
