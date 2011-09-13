@@ -6,7 +6,18 @@ dontbeahero - don't worry, someone else will save the planet
 
 =head1 USAGE
 
-dontbeahero [NO OPTIONS]
+dontbeahero [OPTION]...
+
+=head1 OPTIONS
+
+  -s,  --stdout    don't daemonize
+  -d,  --delay     set delay
+  -l,  --lockfile  specify lockfile
+  -k,  --stop      stop the daemon
+
+  -h,  --help      show the help and exit
+  -v,  --version   show version info and exit
+  -m,  --man       show the manual and exit
 
 =head1 DESCRIPTION
 
@@ -26,12 +37,12 @@ The initial solution was to run
 in a crontab. This worked great the first time. The second time around there's
 nowhere to move and the screen stays black.
 
-I try hard to make sure that we don't use identical values for x and y two times
-in a row.
+B<dontbeahero> uses a delay of 540 seconds (9 minutes) by default. It seems most 
+monitors turn themselves off after 10 or 15 minutes.
 
 =head1 PREREQUISITES
 
-xdotool
+L<xdotool|http://www.semicomplete.com/projects/xdotool/>
 
 =head1 AUTHOR
 
@@ -39,6 +50,10 @@ xdotool
   CPAN ID: WOLDRICH
   m@japh.se
   http://japh.se
+
+=head1 CONTRIBUTORS
+
+L<Dmitri Iouchtchenko|https://github.com/0>
 
 =head1 LICENSE
 
